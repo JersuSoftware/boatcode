@@ -1,0 +1,78 @@
+<div class="container">
+
+    <div class="col-sm-6 panel" style="min-width: 530px">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Game Window
+                <button class="btn btn-primary" ng-click="mainCtrl.compileAndRun()">
+                    Run
+                </button>
+            </div>
+            <div class="panel-body game-area-wrp">
+                <img src="images/campo x75.png" alt="Not Found" id="map" class="game-area">
+                <div class="player"
+                     id="player">
+                    <img src="images/barco x75.png">
+                </div>
+                <img src="images/salvar.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Opções</div>
+            <div class="panel-body">
+                <div ui-tree data-clone-enabled="true">
+                    <ol ui-tree-nodes="" ng-model="mainCtrl.options"
+                        data-nodrop-enabled="true">
+                        <li ng-repeat="item in mainCtrl.options" ui-tree-node ng-include="'nodes_options_renderer.html'">
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Caminho</div>
+            <div class="panel-body">
+                <div ui-tree>
+                    <ol ui-tree-nodes="" ng-model="mainCtrl.path">
+                        <li ng-repeat="item in mainCtrl.path track by $index" ui-tree-node
+                            ng-include="'nodes_path_renderer.html'">
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <button class="btn btn-primary" ng-click="mainCtrl.compileAndRun()">
+                    Run
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/ng-template" id="nodes_options_renderer.html">
+    <div ui-tree-handle>
+        <div class="btn btn-primary"> {{item.label}}
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="nodes_path_renderer.html">
+    <div ui-tree-handle>
+        <div class="btn btn-primary"> {{item.label}}
+            <i class="glyphicon glyphicon-remove-circle"
+               data-nodrag ng-click="mainCtrl.path.splice($index, 1)"></i>
+        </div>
+    </div>
+    <ol ui-tree-nodes="" ng-model="item.items" ng-if="items.items">
+        <li ng-repeat="subItem in item.items track by $index" ui-tree-node>
+            <div ui-tree-handle>
+                <button class="btn btn-primary">{{'sub' + subItem}}
+                    <i class="glyphicon glyphicon-remove-circle"
+                       data-nodrag ng-click="mainCtrl.path.splice($index, 1)"></i>
+                </button>
+            </div>
+        </li>
+    </ol>
+</script>

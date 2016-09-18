@@ -1,30 +1,114 @@
 /* app css stylesheet */
 
 .menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+	list-style: none;
+	border-bottom: 0.1em solid black;
+	margin-bottom: 2em;
+	padding: 0 0 0.5em;
 }
 
 .menu:before {
-  content: "[";
+	content: "[";
 }
 
 .menu:after {
-  content: "]";
+	content: "]";
 }
 
 .menu > li {
-  display: inline;
+	display: inline;
 }
 
 .menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
+	content: "|";
+	padding-right: 0.3em;
 }
 
 .menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
+	content: "";
+	padding: 0;
+}
+
+.angular-ui-tree-placeholder {
+	background: #f5e79e;
+}
+
+.no-transitions {
+	transition: none !important;
+}
+
+.player {
+	display: inline-block;
+	position: absolute;
+	width: 75px;
+	height: 75px;
+	transition: top  5s, left 5s;
+	top: 0px;
+	left: 0px;
+}
+
+.player img {
+	width: 75px;
+	height: 75px;
+}
+
+.game-area {
+	height: 525px;
+	width: 525px;
+}
+
+.game-area-wrp {
+	position: relative;
+	height: 600px;
+	width: 600px;
+}
+
+
+/* Animations */
+
+@keyframes up-left-animation {
+	100% { -webkit-transform: rotate(-90deg); transform:rotate(-90deg);  }
+}
+
+@keyframes up-right-animation {
+	100% { -webkit-transform: rotate(90deg); transform:rotate(90deg);  }
+}
+
+@keyframes up-down-animation {
+	100% { -webkit-transform: rotate(180deg); transform:rotate(180deg);  }
+}
+
+@keyframes down-up-animation {
+	100% { -webkit-transform: rotate(-180deg); transform:rotate(-180deg);  }
+}
+
+@keyframes down-left-animation {
+	100% { -webkit-transform: rotate(90deg); transform:rotate(90deg);  }
+}
+
+@keyframes down-right-animation {
+	100% { -webkit-transform: rotate(-90deg); transform:rotate(-90deg);  }
+}
+
+@keyframes right-up-animation {
+	100% { -webkit-transform: rotate(-90deg); transform:rotate(-90deg);  }
+}
+
+@keyframes right-down-animation {
+	100% { -webkit-transform: rotate(90deg); transform:rotate(90deg);  }
+}
+
+@keyframes right-left-animation {
+	100% { -webkit-transform: rotate(180deg); transform:rotate(180deg);  }
+}
+
+@keyframes left-right-animation {
+	100% { -webkit-transform: rotate(180deg); transform:rotate(180deg);  }
+}
+@keyframes left-up-animation {
+	100% { -webkit-transform: rotate(90deg); transform:rotate(90deg);  }
+}
+
+@keyframes left-down-animation {
+	100% { -webkit-transform: rotate(-90deg); transform:rotate(-90deg);  }
 }
